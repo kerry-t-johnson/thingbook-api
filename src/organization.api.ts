@@ -1,5 +1,5 @@
-import { DataSharingTemplate } from "./data-sharing";
-import { User } from "./user";
+import { DataSharingTemplate } from "./data-sharing.api";
+import { User } from "./user.api";
 
 // ===========================================================================
 // Organization
@@ -30,7 +30,9 @@ export interface Organization {
     domainName: string,
 
     /** The URL to the[OGC - compliant Sensor Things API](https://www.ogc.org/standards/sensorthings) of the {@link Organization} */
-    sensorThingsURL: string,
+    sensorThingsAPI: string,
+
+    sensorThingsMQTT: string,
 
     /** If this {@link Organization} is a sub-organizations, references the parent {@link Organization}, else NULL */
     parent?: Organization,
@@ -71,6 +73,14 @@ export interface OrganizationDataSharingTemplate {
 // ===========================================================================
 // Organization Data Sharing Agreement
 // ===========================================================================
+export interface DataStreamMetrics {
+    name: string,
+    count?: number,
+    lastPhenomenonTime?: Date,
+    lastSuccessfulTime?: Date,
+    lastAttemptTime?: Date,
+}
+
 export enum OrganizationDataSharingAgreementState {
     INACTIVE = 'INACTIVE',
     ACTIVE = 'ACTIVE',
@@ -87,7 +97,8 @@ export interface OrganizationDataSharingAgreement {
     commenceDate: Date,
     expirationDate: Date,
     state: OrganizationDataSharingAgreementState,
-    template: OrganizationDataSharingTemplate
+    template: OrganizationDataSharingTemplate,
+    datastreams: DataStreamMetrics[]
 }
 
 // ===========================================================================
