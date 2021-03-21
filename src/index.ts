@@ -40,5 +40,5 @@ export { ST_Observation } from './sensor-things.api';
 // ===========================================================================
 // Development
 // ===========================================================================
-export { DataLoadRequest } from './development.api';
+export { DataLoadRequest, DataLoadRequestState, EntityCreationStatus } from './development.api';
 
