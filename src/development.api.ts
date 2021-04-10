@@ -2,12 +2,16 @@
 // Data Load Request
 // ===========================================================================
 
+import { Links } from "./metadata.api";
+
 export interface EntityCreationStatus {
-    resource: string;
-    data: string;
-    dynamic?: string;
-    createAt?: Date;
-    status?: number;
+    resource: string,
+    data: string,
+    dynamic?: string,
+    createAt?: Date,
+    status?: number,
+
+    links?: Links
 };
 
 export enum DataLoadRequestState {
@@ -28,4 +32,6 @@ export interface DataLoadRequest {
     failed: number,
     files?: string[],
     entities?: EntityCreationStatus[],
+
+    links?: Links
 }

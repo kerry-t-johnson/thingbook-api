@@ -1,4 +1,5 @@
 import { DataSharingTemplate } from "./data-sharing.api";
+import { Links } from "./metadata.api";
 import { User } from "./user.api";
 
 // ===========================================================================
@@ -42,7 +43,9 @@ export interface Organization {
         token: string,
         user: User,
         verified: boolean,
-    }
+    },
+
+    links?: Links
 }
 
 // ===========================================================================
@@ -53,7 +56,9 @@ export interface OrganizationRole {
     __v?: number,
     user: User,
     org: Organization,
-    role: string
+    role: string,
+
+    links?: Links
 }
 
 // ===========================================================================
@@ -68,6 +73,8 @@ export interface OrganizationDataSharingTemplate {
     auto: boolean,
     keywords: string[],
     datastreams: string[],
+
+    links?: Links
 }
 
 // ===========================================================================
@@ -79,6 +86,8 @@ export interface DataStreamMetrics {
     lastPhenomenonTime?: Date,
     lastSuccessfulTime?: Date,
     lastAttemptTime?: Date,
+
+    links?: Links
 }
 
 export enum OrganizationDataSharingAgreementState {
@@ -98,7 +107,9 @@ export interface OrganizationDataSharingAgreement {
     expirationDate: Date,
     state: OrganizationDataSharingAgreementState,
     template: OrganizationDataSharingTemplate,
-    datastreams: DataStreamMetrics[]
+    datastreams: DataStreamMetrics[],
+
+    links?: Links
 }
 
 // ===========================================================================
@@ -108,5 +119,7 @@ export interface OrganizationSensorThingsStatus {
     _id?: any,
     __v?: number,
     org: Organization,
-    reachable: boolean
+    reachable: boolean,
+
+    links?: Links
 }
