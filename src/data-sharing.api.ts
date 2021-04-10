@@ -1,5 +1,8 @@
 // ===========================================================================
 // Data Sharing Fragment
+
+import { Links } from "./metadata.api";
+
 // ===========================================================================
 export enum DataSharingFragmentType {
     AUTHORIZATION = 'AUTHORIZATION',
@@ -12,7 +15,9 @@ export interface DataSharingFragment {
     __v?: number,
     name: string,
     text: string,
-    type: DataSharingFragmentType
+    type: DataSharingFragmentType,
+
+    links?: Links
 }
 
 // ===========================================================================
@@ -22,5 +27,7 @@ export interface DataSharingTemplate {
     _id?: any,
     __v?: number,
     name: String,
-    fragments: DataSharingFragment[]
+    fragments: DataSharingFragment[],
+
+    links?: Links
 }
