@@ -26,10 +26,10 @@ export interface DataLoadRequest {
 
     name: string,
     url: URL,
-    state: DataLoadRequestState,
-    created: number,
-    existing: number,
-    failed: number,
+    state?: DataLoadRequestState,
+    created?: number,
+    existing?: number,
+    failed?: number,
     files?: string[],
     entities?: EntityCreationStatus[],
 
