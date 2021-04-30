@@ -34,6 +34,10 @@ export class PaginationOptions {
         return { [sort_field]: sort_value };
     }
 
+    public skip(): number {
+        return this.page_number * this.page_size;
+    }
+
 }
 
 export class PaginationStatus {
