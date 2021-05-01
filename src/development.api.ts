@@ -24,8 +24,8 @@ export interface DataLoadRequest {
     _id?: any,
     __v?: number,
 
-    name: string,
-    url: URL,
+    name?: string,
+    url?: URL,
     state?: DataLoadRequestState,
     created?: number,
     existing?: number,
